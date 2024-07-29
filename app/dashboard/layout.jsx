@@ -7,8 +7,10 @@ function dashboardLayout({ children }) {
     return (
         <div>
             <Header />
-            {children}
-            <Footer/>
+            <div className='mx-5 md:mx-20 lg:mx-36'>
+                {children}
+            </div>
+            <Footer />
         </div>
     )
 }
