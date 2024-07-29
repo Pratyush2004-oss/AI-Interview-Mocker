@@ -1,5 +1,7 @@
+'use client'
 import React from 'react'
 import AddNewInterview from './_components/addNewInterview'
+import InterviewList from './_components/InterviewList'
 
 const Dashboard = () => {
   return (
@@ -10,6 +12,11 @@ const Dashboard = () => {
       <div className='grid grid-cols-1 md:grid-cols-3 my-5'>
         <AddNewInterview />
       </div>
+      
+      {/*vPrevious Interview List */}
+      <InterviewList/>
+
+      
 
     </div>
   )

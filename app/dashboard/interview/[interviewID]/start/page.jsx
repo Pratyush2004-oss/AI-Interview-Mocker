@@ -5,6 +5,9 @@ import { eq } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react'
 import QuestionSection from './_components/QuestionSection';
 import RecordAnswers from './_components/RecordAnswers';
+import { Button } from '@/components/ui/button';
+import { ArrowLeftSquare, ArrowRightSquare } from 'lucide-react';
+import Link from 'next/link';
 
 const StartInterview = ({ params }) => {
 
@@ -35,7 +38,26 @@ const StartInterview = ({ params }) => {
 
 
                 {/* Video/ audio recording */}
-                <RecordAnswers/>
+                <RecordAnswers
+                    mockInterviewQuestions={mockInterviewQuestions}
+                    activequestionIndex={activequestionIndex}
+                    InterviewData={InterviewData}
+                />
+            </div>
+            <div className='flex justify-end gap-5'>
+                {activequestionIndex > 0 &&
+                    <Button onClick={() => setActiveQuestionIndex(activequestionIndex - 1)}> <ArrowLeftSquare /> Previous </Button>
+                }
+                {
+                    activequestionIndex != mockInterviewQuestions?.length - 1 &&
+                    <Button onClick={() => setActiveQuestionIndex(activequestionIndex + 1)}>Next  <ArrowRightSquare /></Button>
+                }
+                {
+                    activequestionIndex == mockInterviewQuestions?.length - 1 &&
+                    <Link href={'/dashboard/interview/' + InterviewData?.mockId + '/feedback'}>
+                    <Button>End Interview</Button>
+                    </Link>
+                }
             </div>
         </div>
     )
