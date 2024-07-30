@@ -31,7 +31,7 @@ const Works = () => {
                 </div>
 
                 <div className='my-4'>
-                    <h2 className='text-xl font-semibold border-b-2 font-serif'>Additiinal !!</h2>
+                    <h2 className='text-xl font-semibold border-b-2 font-serif'>Additional !!</h2>
                     <p className='text-sm'>In this page, at the <strong>Question </strong> section you will get multiple questions along with their answers to practice for your interview. </p>
                 </div>
             </div>
