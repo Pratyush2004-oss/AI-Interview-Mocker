@@ -26,8 +26,12 @@ const Feedback = ({ params }) => {
         const result = await db.select().from(UserAnswer)
             .where(eq(UserAnswer.mockIdRef, params.interviewID))
             .orderBy(UserAnswer.id);
-
         setFeedBacklist(result)
+        let sum = 0
+        result.forEach(function(value){
+            sum += Number(value.rating)
+        })
+        setoverallRating(sum)
     }
     return (
         <div className='p-10'>
@@ -36,14 +40,14 @@ const Feedback = ({ params }) => {
                 <div>
                     <h2 className='text-2xl font-bold text-success'>Congratulation</h2>
                     <h2 className='font-bold text-2xl'>Here is your Interview Feedback</h2>
-                    <h2 className='text-primary text-lg my-3'>Your overall Interview rating <strong>7/10</strong> </h2>
+                    <h2 className='text-primary text-lg my-3'>Your overall Interview rating <strong>{overallRating/FeedbackList.length}/10</strong> </h2>
 
                     <h2 className='text-sm text-gray-500'>Find below interview Question with correct answer, your answer and feedback for imporvement </h2>
                     {
 
                         FeedbackList.map((item, idx) => (
                             <Collapsible key={idx} className='mt-10 border-4 rounded-lg'>
-                                <CollapsibleTrigger className='p-2 w-full bg-secondary flex gap-3 rounded-lg my-2 text-justify'>{item.question} <ChevronsUpDown className='h-5 w-5' /> </CollapsibleTrigger>
+                                <CollapsibleTrigger className='p-2 w-full bg-secondary flex gap-3 justify-between rounded-lg my-2 text-justify'>{item.question} <ChevronsUpDown className='h-5 w-5' /> </CollapsibleTrigger>
                                 <CollapsibleContent>
                                     <div className='flex flex-col gap-2'>
                                         <h2 className='text-red-500 p-2 border rounded-lg'><strong>Rating : </strong> {item.rating}</h2>

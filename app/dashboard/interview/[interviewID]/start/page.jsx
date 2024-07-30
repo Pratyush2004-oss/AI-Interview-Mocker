@@ -36,29 +36,32 @@ const StartInterview = ({ params }) => {
                     activequestionIndex={activequestionIndex}
                 />
 
-
                 {/* Video/ audio recording */}
-                <RecordAnswers
-                    mockInterviewQuestions={mockInterviewQuestions}
-                    activequestionIndex={activequestionIndex}
-                    InterviewData={InterviewData}
-                />
+                <div>
+                    <RecordAnswers
+                        mockInterviewQuestions={mockInterviewQuestions}
+                        activequestionIndex={activequestionIndex}
+                        InterviewData={InterviewData}
+                    />
+                    <div className='max-md:pb-20 flex items-end justify-end gap-5'>
+                        {activequestionIndex > 0 &&
+                            <Button className='flex justify-between items-center gap-2' onClick={() => setActiveQuestionIndex(activequestionIndex - 1)}> <ArrowLeftSquare /> Previous </Button>
+                        }
+                        {
+                            activequestionIndex != mockInterviewQuestions?.length - 1 &&
+                            <Button className='flex justify-between items-center gap-2' onClick={() => setActiveQuestionIndex(activequestionIndex + 1)}>Next  <ArrowRightSquare /></Button>
+                        }
+                        {
+                            activequestionIndex == mockInterviewQuestions?.length - 1 &&
+                            <Link href={'/dashboard/interview/' + InterviewData?.mockId + '/feedback'}>
+                                <Button>End Interview</Button>
+                            </Link>
+                        }
+                    </div>
+                </div>
             </div>
-            <div className='flex justify-end gap-5'>
-                {activequestionIndex > 0 &&
-                    <Button onClick={() => setActiveQuestionIndex(activequestionIndex - 1)}> <ArrowLeftSquare /> Previous </Button>
-                }
-                {
-                    activequestionIndex != mockInterviewQuestions?.length - 1 &&
-                    <Button onClick={() => setActiveQuestionIndex(activequestionIndex + 1)}>Next  <ArrowRightSquare /></Button>
-                }
-                {
-                    activequestionIndex == mockInterviewQuestions?.length - 1 &&
-                    <Link href={'/dashboard/interview/' + InterviewData?.mockId + '/feedback'}>
-                    <Button>End Interview</Button>
-                    </Link>
-                }
-            </div>
+
+
         </div>
     )
 }

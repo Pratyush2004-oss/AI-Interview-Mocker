@@ -7,9 +7,9 @@ import { usePathname } from 'next/navigation'
 
 const Header = () => {
     const path = usePathname();
-    useEffect(()=>{
+    useEffect(() => {
 
-    },[path])
+    }, [path])
     const menuitem = [
         {
             id: 1,
@@ -38,10 +38,12 @@ const Header = () => {
     ]
     return (
         <div className='flex sticky top-0 items-center justify-between bg-secondary shadow-sm px-1'>
-            <Image src={'/AI-Mock-logo.png'} width={80} height={70} alt='logo' className='rounded-lg'></Image>
+            <Link href={'/'}>
+                <Image src={'/AI-Mock-logo.png'} width={150} height={150} alt='logo' className='rounded-lg'></Image>
+            </Link>
             <ul className='sm:flex gap-6 hidden'>
                 {menuitem.map((item, idx) => (
-                    <Link href={item.path} className={`${path == item.path ? "text-primary font-bold" : "" } hover:text-primary hover:font-bold transition-all cursor-pointer`} key={idx}>{item.name}</Link>
+                    <Link href={item.path} className={`${path == item.path ? "text-primary font-bold" : ""} hover:text-primary hover:font-bold transition-all cursor-pointer`} key={idx}>{item.name}</Link>
                 ))}
             </ul>
             <UserButton />
