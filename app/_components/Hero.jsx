@@ -27,7 +27,7 @@ const Hero = () => {
                             </Link>
 
                             <Link
-                                href="#"
+                                href="/dashboard/work"
                                 className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-primary shadow hover:text-purple-900 focus:outline-none focus:ring active:text-purple-500 sm:w-auto"
                             >
                                 Learn More
