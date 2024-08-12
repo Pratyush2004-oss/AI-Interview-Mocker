@@ -9,7 +9,7 @@ const QuestionSection = ({ mockInterviewQuestions, activequestionIndex }) => {
       window.speechSynthesis.speak(speech)
     }
     else {
-      alert('Your Browser doesnot support Trxt to Speech')
+      alert('Your Browser doesnot support Text to Speech')
     }
   }
 
@@ -18,7 +18,7 @@ const QuestionSection = ({ mockInterviewQuestions, activequestionIndex }) => {
     <div className='p-5 border rounded-lg my-10'>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
         {mockInterviewQuestions && mockInterviewQuestions.map((question, idx) => (
-          <h2 className={`p-2 bg-secondary rounded-full text-xs md:text-sm text-center cursor-pointer ${activequestionIndex == idx && 'bg-purple-500 text-white'}`}>Question #{idx + 1}</h2>
+          <h2 key={idx} className={`p-2 bg-secondary rounded-full text-xs md:text-sm text-center cursor-pointer ${activequestionIndex == idx && 'bg-purple-500 text-white'}`}>Question #{idx + 1}</h2>
         ))}
 
       </div>

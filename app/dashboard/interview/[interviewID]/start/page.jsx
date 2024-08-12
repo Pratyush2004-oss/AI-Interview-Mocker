@@ -24,7 +24,6 @@ const StartInterview = ({ params }) => {
 
         const jsonMockResp = JSON.parse(result[0].jsonMockResp)
         setMockinterviewQuestions(jsonMockResp);
-        console.log(jsonMockResp)
         setInterviewData(result[0]);
     }
     return (
