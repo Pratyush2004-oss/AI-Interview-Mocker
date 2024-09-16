@@ -22,9 +22,10 @@ const StartInterview = ({ params }) => {
         const result = await db.select().from(MockInterview)
             .where(eq(MockInterview.mockId, params.interviewID))
 
-        const jsonMockResp = JSON.parse(result[0].jsonMockResp)
+        const jsonMockResp = JSON.parse(result[0].jsonMockResp);
         setMockinterviewQuestions(jsonMockResp);
         setInterviewData(result[0]);
+        console.log(result[0])
     }
     return (
         <div>
@@ -59,8 +60,6 @@ const StartInterview = ({ params }) => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }

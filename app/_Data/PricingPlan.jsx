@@ -2,7 +2,7 @@ export default [
     {
         name: 'Yearly',
         link: "https://buy.stripe.com/test_9AQ4gO9UT3SefAseV2",
-        price: 349.00,
+        price: 299.00,
         priceId: 'price_1Pi3fGIzo804XdfjHeo5MFfD',
         duration: '/year'
 

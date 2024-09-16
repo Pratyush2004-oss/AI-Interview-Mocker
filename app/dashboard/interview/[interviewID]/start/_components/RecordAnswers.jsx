@@ -38,12 +38,12 @@ const RecordAnswers = ({ activequestionIndex, mockInterviewQuestions, InterviewD
         ))
     }, [results])
 
-    useEffect(()=>{
-        if(!isRecording && userAnswer.length>10){
-            updateUserAnswer() 
+    useEffect(() => {
+        if (!isRecording && userAnswer.length > 10) {
+            updateUserAnswer()
         }
 
-    },[userAnswer])
+    }, [userAnswer])
 
     const StartStopRecording = async () => {
         if (isRecording) {
@@ -107,6 +107,7 @@ const RecordAnswers = ({ activequestionIndex, mockInterviewQuestions, InterviewD
                     }}
                 />
             </div>
+
             <Button variant='outline' className='w-full my-10'
                 onClick={StartStopRecording}
             >
